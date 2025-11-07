@@ -3,7 +3,7 @@
   background-color: #f5f9ff; /* subtle light blue */
   min-height: calc(100vh - 160px);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 500px important!;
+  margin-bottom: 500px !important;
 }
 
 .products-grid {
