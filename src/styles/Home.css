@@ -1,9 +1,9 @@
 .home-container {
-  padding: 85px 100px;
-  background-color: #f5f9ff; /* subtle light blue */
+  padding: 5px 100px;
+  background-color: #f5f9ff;
   min-height: calc(100vh - 160px);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 500px important!;
+  margin-bottom: 100px !important;
 }
 
 .products-grid {
@@ -22,6 +22,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  animation: fadeInUp 0.5s ease forwards;
+  margin-top: 30px;
 }
 
 .product-card:hover {
@@ -34,6 +37,11 @@
   height: 160px;
   object-fit: contain;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
 }
 
 .product-title {
@@ -41,13 +49,57 @@
   font-weight: 700;
   color: #003366;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  min-height: 48px;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.rating {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  font-size: 18px;
+  color: #e4dcdc;
+  margin-right: 2px;
+  transition: color 0.2s;
+}
+
+.starfilled {
+  color: #f1c40f; 
+}
+
+.star:last-child {
+  margin-right: 0;
 }
 
 .product-price {
   font-size: 20px;
   font-weight: 700;
   color: #0055cc;
+  margin-bottom: 12px;
+}
+
+.add-to-cart-btn {
+  background-color: #0055cc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #003d99;
 }
 
 .no-results {
@@ -59,6 +111,7 @@
   margin-top: 40px;
 }
 
+/* Responsive for mobile screen */
 @media (max-width: 640px) {
   .home-container {
     padding: 20px 15px;
@@ -73,8 +126,25 @@
   }
   .product-title {
     font-size: 15px;
+    min-height: 40px;
   }
   .product-price {
     font-size: 18px;
+  }
+  .add-to-cart-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Animation part */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
